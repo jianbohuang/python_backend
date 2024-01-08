@@ -96,19 +96,8 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(dlpack)
 
 #
-# Boost
+# Boost 提前编译 并 install
 #
-ExternalProject_Add(
-  boostorg
-  URL https://boostorg.jfrog.io/artifactory/main/release/1.79.0/source/boost_1_79_0.tar.gz
-  URL_HASH SHA256=273f1be93238a068aba4f9735a4a2b003019af067b9c183ed227780b8f36062c
-  PREFIX "boost-src"
-  CONFIGURE_COMMAND ${CMAKE_COMMAND} -E copy_directory
-                    <SOURCE_DIR>/boost/ ${CMAKE_BINARY_DIR}/boost
-  INSTALL_COMMAND ""
-  BUILD_COMMAND ""
-)
-set(boostorg_INCLUDE_DIRS "${CMAKE_BINARY_DIR}/boost/")
 
 #
 # CUDA
