@@ -98,7 +98,16 @@ FetchContent_MakeAvailable(dlpack)
 #
 # Boost 依赖安装好
 #
-
+ExternalProject_Add(
+  boostorg
+  URL https://mirrors.tencent.com/macports/distfiles/boost180/boost_1_80_0.tar.bz2
+  PREFIX "boost-src"
+  CONFIGURE_COMMAND ${CMAKE_COMMAND} -E copy_directory
+                    <SOURCE_DIR>/boost/ ${CMAKE_BINARY_DIR}/boost
+  INSTALL_COMMAND ""
+  BUILD_COMMAND ""
+)
+set(boostorg_INCLUDE_DIRS "${CMAKE_BINARY_DIR}/boost/")
 
 #
 # CUDA
